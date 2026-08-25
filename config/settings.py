@@ -9,9 +9,13 @@ from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config("SECRET_KEY", default="dev-only-insecure-key")
-DEBUG = config("DEBUG", default=True, cast=bool)
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost,127.0.0.1", cast=Csv())
+SECRET_KEY = config("SECRET_KEY")
+DEBUG = config("DEBUG", default=False, cast=bool)
+ALLOWED_HOSTS = config(
+    "ALLOWED_HOSTS",
+    default="localhost,127.0.0.1",
+    cast=Csv(),
+)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -156,10 +160,25 @@ SIMPLE_JWT = {
 }
 
 # ---------------- CORS ----------------
+# ---------------- CORS ----------------
 CORS_ALLOWED_ORIGINS = config(
-    "FRONTEND_URL", default="http://localhost:5173", cast=Csv()
+    "FRONTEND_URL",
+    default="http://localhost:5173",
+    cast=Csv(),
 )
+
 CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://restaurant-frontend-ogy6.vercel.app",
+]
+
+# ---------------- Production Security ----------------
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # ---------------- Paystack ----------------
 PAYSTACK_SECRET_KEY = config("PAYSTACK_SECRET_KEY", default="")
