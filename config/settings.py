@@ -11,11 +11,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
-ALLOWED_HOSTS = config(
-    "ALLOWED_HOSTS",
-    default="localhost,127.0.0.1",
-    cast=Csv(),
-)
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "https://restaurant-frontend-ogy6.vercel.app",
+    "localhost,127.0.0.1,https://restaurant-backend-2wp5.onrender.com"
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -172,7 +173,7 @@ SIMPLE_JWT = {
 # ---------------- CORS ----------------
 CORS_ALLOWED_ORIGINS = config(
     "FRONTEND_URL",
-    default="http://localhost:5173",
+    default="https://restaurant-frontend-ogy6.vercel.app",
     cast=Csv(),
 )
 
@@ -180,6 +181,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "https://restaurant-frontend-ogy6.vercel.app",
+    "http://localhost:5173",
 ]
 
 # ---------------- Production Security ----------------
