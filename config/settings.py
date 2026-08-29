@@ -177,6 +177,9 @@ SIMPLE_JWT = {
 #     cast=Csv(),
 # )
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://restaurant-frontend-ogy6.vercel.app",
+]
 
 CORS_ALLOWED_ORIGINS = [
     "https://restaurant-frontend-ogy6.vercel.app",
