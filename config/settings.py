@@ -171,18 +171,20 @@ SIMPLE_JWT = {
 
 # ---------------- CORS ----------------
 # ---------------- CORS ----------------
-CORS_ALLOWED_ORIGINS = config(
-    "FRONTEND_URL",
-    default="https://restaurant-frontend-ogy6.vercel.app",
-    cast=Csv(),
-)
+# CORS_ALLOWED_ORIGINS = config(
+#     "FRONTEND_URL",
+#     default="https://restaurant-frontend-ogy6.vercel.app",
+#     cast=Csv(),
+# )
 
-CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
     "https://restaurant-frontend-ogy6.vercel.app",
     "http://localhost:5173",
 ]
+
+CORS_ALLOW_CREDENTIALS = True
+
 
 # ---------------- Production Security ----------------
 if not DEBUG:
