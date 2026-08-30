@@ -8,14 +8,13 @@ from datetime import timedelta
 from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
+
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "https://restaurant-frontend-ogy6.vercel.app",
-    "localhost,127.0.0.1,https://restaurant-backend-2wp5.onrender.com"
+    "restaurant-backend-2wp5.onrender.com",
 ]
 
 INSTALLED_APPS = [
