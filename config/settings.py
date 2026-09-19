@@ -1,4 +1,4 @@
-"""
+my"""
 Django settings for the Itagokwaife Grillspot backend.
 Two-project architecture: this backend is a pure REST API.
 The React frontend (restaurant-frontend/) is a fully separate project.
@@ -32,6 +32,9 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt",
     "corsheaders",
     "django_filters",
+    
+    "cloudinary_storage",
+    "cloudinary",
 
     # local apps
     "apps.accounts",
@@ -110,8 +113,10 @@ TIME_ZONE = "Africa/Lagos"
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+MEDIA_URL = "/media/"
 
 # ---------------- Cloudinary Storage ----------------
 CLOUDINARY_STORAGE = {
