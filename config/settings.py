@@ -1,4 +1,4 @@
-my"""
+"""
 Django settings for the Itagokwaife Grillspot backend.
 Two-project architecture: this backend is a pure REST API.
 The React frontend (restaurant-frontend/) is a fully separate project.
